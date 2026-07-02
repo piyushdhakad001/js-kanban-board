@@ -19,6 +19,7 @@ body{
 .header{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 60px;
   border-bottom: 2px solid;
   padding: 10px;
@@ -65,4 +66,58 @@ button{
     min-height: 250px;
     
     padding: 10px;
+}
+
+@media (max-width: 450px){
+   .header{
+    font-size: 20px;
+    
+  }
+  button{
+    font-size: small;
+    /* padding: 0 10px 0 10px; */
+    padding: 4px;  
+  }
+  .task-header{
+    font-size: small;
+    padding-bottom: 0px;
+
+  }
+  .task{
+    font-size: 12px;
+    border-radius: 8px;
+  }
+  .board{
+    padding: 10px;
+    grid-template-columns: 1fr;
+    
+  }
+  .column{
+    min-height: 44vh;
+  }
+}
+
+@media (min-width: 450px ) and (max-width: 900px){
+  .header{
+    font-size: 30px;
+    
+  }
+  .task-header{
+    font-size: small;
+    padding-bottom: 0px;
+  }
+  .task{
+    font-size: 12px;
+    border-radius: 8px;
+    
+  }
+  .board{
+    padding: 10px;
+    grid-template-columns: 2fr 2fr;
+    
+  }
+  .column{
+    min-height: 44vh;
+  }
+  
 }

@@ -1,67 +1,73 @@
 const addButton = document.querySelector(".add-button");
 const taskContainer = document.querySelectorAll(".task-cont");
 
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 let draggedTask = null;
-
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 render();
 
-
-
 addButton.addEventListener("click", () => {
-
   const taskName = prompt("Enter task name:");
-if (!taskName) return;
-  
+
+  if (!taskName) return;
 
   tasks.push({
     id: Date.now(),
     text: taskName,
     column: 0,
   });
-  
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  
-  render()
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  render();
 });
 
+function render() {
+  // Clear all columns
+  taskContainer.forEach(container => {
+    container.innerHTML = "";
+  });
 
-function render(){
-  taskContainer.forEach(container => container.innerHTML = '');
+  // Create every task again
   tasks.forEach((taskData) => {
     const task = document.createElement("p");
     task.classList.add("task");
     task.textContent = taskData.text;
     task.draggable = true;
 
-    // allow dragging 
+    // DRAG FUNCTIONALITY-----------
+    // Make task draggable
     task.setAttribute("draggable", "true");
 
     // start dragging
     task.addEventListener("dragstart", () => {
       draggedTask = taskData.id;
-    })
+    });
 
-    // finish dragging 
+    // Finish dragging
     task.addEventListener("dragend", () => {
       draggedTask = null;
-    })
+    });
+
+    // ------------------------
+
     taskContainer[taskData.column].appendChild(task);
-  })
+  });
 }
 
+// // DROP FUNCTIONALITY---------------------------
 taskContainer.forEach((container, index) => {
+  // Required to allow dropping
   container.addEventListener("dragover", (e) => {
     e.preventDefault();
   });
 
-  // drop
-  container.addEventListener("drop", ()=> {
-    const task = tasks.find((t) => t.id === draggedTask );
+  // Drop task
+  container.addEventListener("drop", () => {
+    const task = tasks.find((t) => t.id === draggedTask);
 
     task.column = index;
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
+
     render();
-  })
-})
+  });
+});
+// --------------------------------------------------

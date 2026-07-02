@@ -11,8 +11,8 @@ render();
 addButton.addEventListener("click", () => {
 
   const taskName = prompt("Enter task name:");
-
-  if (!taskName) return;
+if (!taskName) return;
+  
 
   tasks.push({
     id: Date.now(),

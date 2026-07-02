@@ -18,6 +18,8 @@ addButton.addEventListener("click", () => {
     column: 0,
   });
   
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  
   render()
 });
 
@@ -57,6 +59,7 @@ taskContainer.forEach((container, index) => {
 
     task.column = index;
 
+    localStorage.setItem("tasks", JSON.stringify(tasks));
     render();
   })
 })

@@ -1,9 +1,11 @@
 const addButton = document.querySelector(".add-button");
 const taskContainer = document.querySelectorAll(".task-cont");
 
-let tasks =  [];
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 let draggedTask = null;
+
 render();
+
 
 
 addButton.addEventListener("click", () => {

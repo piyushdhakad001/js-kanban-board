@@ -1,22 +1,21 @@
-*{
+* {
   margin: 0;
   padding: 0;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
-body{
+body {
   display: flex;
   justify-content: center;
   align-items: center;
   background: rgb(18, 35, 54);
-  
 }
-.container{
+.container {
   width: 95%;
   min-height: 80vh;
   margin-top: 10px;
 }
-.header{
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,35 +23,31 @@ body{
   border-bottom: 2px solid;
   padding: 10px;
 }
-button{
+button {
   color: black;
   font-size: large;
   font-weight: bolder;
   padding: 0 20px 0 20px;
 }
-.board{
+.board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* border: 1px solid; */
   gap: 20px;
   padding: 20px;
-  
 }
 
-.column{
-  /* display: flex;
-  flex-direction: column; */
+.column {
   min-height: 60vh;
   background: rgb(34, 53, 73);
-  border-radius:30px;
+  border-radius: 30px;
 }
-.task-header{
+.task-header {
   font-size: xx-large;
   font-weight: bolder;
   padding: 30px;
 }
 
-.task{
+.task {
   font-size: 20px;
   font-weight: 100;
   margin: 10px;
@@ -63,61 +58,53 @@ button{
   padding: 10px;
 }
 .task-cont {
-    min-height: 250px;
-    
-    padding: 10px;
+  min-height: 250px;
+
+  padding: 10px;
 }
 
-@media (max-width: 450px){
-   .header{
+@media (max-width: 450px) {
+  .header {
     font-size: 20px;
-    
   }
-  button{
+  button {
     font-size: small;
-    /* padding: 0 10px 0 10px; */
-    padding: 4px;  
+    padding: 4px;
   }
-  .task-header{
+  .task-header {
     font-size: small;
     padding-bottom: 0px;
-
   }
-  .task{
+  .task {
     font-size: 12px;
     border-radius: 8px;
   }
-  .board{
+  .board {
     padding: 10px;
     grid-template-columns: 1fr;
-    
   }
-  .column{
+  .column {
     min-height: 44vh;
   }
 }
 
-@media (min-width: 450px ) and (max-width: 900px){
-  .header{
+@media (min-width: 450px) and (max-width: 900px) {
+  .header {
     font-size: 30px;
-    
   }
-  .task-header{
+  .task-header {
     font-size: small;
     padding-bottom: 0px;
   }
-  .task{
+  .task {
     font-size: 12px;
     border-radius: 8px;
-    
   }
-  .board{
+  .board {
     padding: 10px;
     grid-template-columns: 2fr 2fr;
-    
   }
-  .column{
+  .column {
     min-height: 44vh;
   }
-  
 }

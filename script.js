@@ -23,7 +23,7 @@ addButton.addEventListener("click", () => {
 
 
 function render(){
- 
+  taskContainer.forEach(container => container.innerHTML = '');
   tasks.forEach((taskData) => {
     const task = document.createElement("p");
     task.classList.add("task");
@@ -57,6 +57,6 @@ taskContainer.forEach((container, index) => {
 
     task.column = index;
 
-    
+    render();
   })
 })

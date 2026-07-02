@@ -47,7 +47,9 @@ function render(){
 }
 
 taskContainer.forEach((container, index) => {
- 
+  container.addEventListener("dragover", (e) => {
+    e.preventDefault();
+  });
 
   // drop
   container.addEventListener("drop", ()=> {

@@ -3,7 +3,7 @@ const taskContainer = document.querySelectorAll(".task-cont");
 
 let tasks =  [];
 
-
+render();
 addButton.addEventListener("click", () => {
   const taskName = prompt("Enter task name:");
 
@@ -15,6 +15,11 @@ addButton.addEventListener("click", () => {
     column: 0,
   });
   
+  render()
+});
+
+
+function render(){
   tasks.forEach((taskData) => {
     const task = document.createElement("p");
     task.classList.add("task");
@@ -22,5 +27,4 @@ addButton.addEventListener("click", () => {
     task.draggable = true;
     taskContainer[taskData.column].appendChild(task);
   })
-});
-
+}

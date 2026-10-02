@@ -2,7 +2,7 @@ const addButton = document.querySelector(".add-button");
 const taskContainer = document.querySelectorAll(".task-cont");
 
 let draggedTask = null;
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let tasks = JSON.parse(localStorage.getItem("kanbanTasks")) || [];
 render();
 
 addButton.addEventListener("click", () => {
@@ -65,9 +65,19 @@ taskContainer.forEach((container, index) => {
 
     task.column = index;
 
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+   localStorage.setItem("kanbanTasks", JSON.stringify(tasks));
 
     render();
   });
+});
+
+
+container.addEventListener("drop", () => {
+  const task = tasks.find((t) => t.id === draggedTask);
+  if (!task) return;
+
+  task.column = index;
+  localStorage.setItem("kanbanTasks", JSON.stringify(tasks));
+  render();
 });
 // --------------------------------------------------

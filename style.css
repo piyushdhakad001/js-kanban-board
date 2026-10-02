@@ -1,110 +1,126 @@
 * {
   margin: 0;
   padding: 0;
-  color: white;
+  box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgb(18, 35, 54);
+  background: #12233a;
+  color: white;
+  min-height: 100vh;
 }
+
 .container {
   width: 95%;
-  min-height: 80vh;
-  margin-top: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 15px;
 }
+
+/* ---------- header ---------- */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 60px;
-  border-bottom: 2px solid;
   padding: 10px;
+  border-bottom: 1px solid #3a5069;
 }
-button {
-  color: black;
-  font-size: large;
-  font-weight: bolder;
-  padding: 0 20px 0 20px;
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
 }
+
+.add-button {
+  padding: 8px 18px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #12233a;
+  background: #e8eef5;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background: #c9d6e4;
+}
+
+/* ---------- board and columns ---------- */
 .board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 20px;
+  gap: 15px;
+  padding: 15px 0;
 }
 
 .column {
+  display: flex;
+  flex-direction: column;
   min-height: 60vh;
-  background: rgb(34, 53, 73);
-  border-radius: 30px;
+  background: #223549;
+  border-radius: 10px;
 }
+
 .task-header {
-  font-size: xx-large;
-  font-weight: bolder;
-  padding: 30px;
-}
-
-.task {
   font-size: 20px;
-  font-weight: 100;
-  margin: 10px;
-  cursor: grab;
-  color: white;
-  background: rgb(53, 68, 80);
-  border-radius: 15px;
-  padding: 10px;
+  font-weight: bold;
+  padding: 15px;
+  border-bottom: 1px solid #3a5069;
 }
+
+/* the whole area under the heading is the drop zone */
 .task-cont {
-  min-height: 250px;
-
+  flex: 1;
   padding: 10px;
 }
 
-@media (max-width: 450px) {
-  .header {
-    font-size: 20px;
-  }
-  button {
-    font-size: small;
-    padding: 4px;
-  }
-  .task-header {
-    font-size: small;
-    padding-bottom: 0px;
-  }
-  .task {
-    font-size: 12px;
-    border-radius: 8px;
-  }
+/* ---------- tasks ---------- */
+.task {
+  font-size: 16px;
+  background: #354450;
+  border: 1px solid #4a5d6e;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: grab;
+  word-break: break-word;
+}
+
+.task:hover {
+  background: #3f5160;
+}
+
+.task:active {
+  cursor: grabbing;
+}
+
+/* ---------- small screens ---------- */
+@media (max-width: 800px) {
   .board {
-    padding: 10px;
     grid-template-columns: 1fr;
   }
-  .column {
-    min-height: 44vh;
-  }
-}
 
-@media (min-width: 450px) and (max-width: 900px) {
-  .header {
-    font-size: 30px;
-  }
-  .task-header {
-    font-size: small;
-    padding-bottom: 0px;
-  }
-  .task {
-    font-size: 12px;
-    border-radius: 8px;
-  }
-  .board {
-    padding: 10px;
-    grid-template-columns: 2fr 2fr;
-  }
   .column {
-    min-height: 44vh;
+    min-height: 200px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .add-button {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .task-header {
+    font-size: 18px;
+    padding: 12px;
+  }
+
+  .task {
+    font-size: 15px;
   }
 }
